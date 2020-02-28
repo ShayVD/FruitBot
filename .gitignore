@@ -1,5 +1,7 @@
 *.tar.gz
-db/*
-!.gitkeep
+fruit_bot_stack/db/*
 __pycache__/*
 *.pyc
+fruit_bot_stack/nginx/certbot/conf/*
+fruit_bot_stack/nginx/certbot/www/*
+!.gitkeep
