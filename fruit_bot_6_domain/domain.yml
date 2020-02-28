@@ -1,0 +1,131 @@
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - why
+  - thank
+  - enter_data
+  - what_fruit
+  - want_fruit
+  - tell_joke
+
+
+actions:
+- action_joke
+- utter_greet
+- utter_welcome
+- utter_ask_PERSON
+- utter_affirm_name
+- utter_deny_name
+- utter_why_name
+- utter_ask_EMAIL
+- utter_affirm_email
+- utter_deny_email
+- utter_why_email
+- utter_ask_buy_fruit
+- utter_ask_buy_fruit_again
+- utter_ask_buy_fruit_again_again
+- utter_hard_bargain
+- utter_done_asking
+- utter_ask_fruit
+- utter_contact_soon
+- utter_no_problem
+- utter_goodbye
+- utter_iamabot
+
+
+forms:
+- form_initial_details
+- form_fruit
+
+entities:
+- PERSON
+- EMAIL
+- fruit
+
+slots:
+  PERSON:
+    type: unfeaturized
+  EMAIL:
+    type: unfeaturized
+  fruit:
+    type: unfeaturized
+  first_name:
+    type: text
+    auto_fill: false
+  last_name:
+    type: text
+    auto_fill: false
+
+responses:
+  
+  utter_greet:
+  - text: "Hello there! My name's Ava and I'm here to help you order some fresh fruit and answer any questions you might have."
+
+  utter_welcome:
+  - text: "It's a pleasure to meet you {first_name}!"
+
+  utter_ask_PERSON:
+  - text: "What's your own name?"
+
+  utter_affirm_name:
+  - text: "Great! Just type it in below."
+
+  utter_deny_name:
+  - text: "Oh, I'm sorry but I will need your name to continue."
+
+  utter_why_name:
+  - text: "Just so I can get to know you a bit better!"
+
+  utter_ask_EMAIL:
+  - text: "Could I get your email address?"
+  - text: "Can I have your email please?"
+
+  utter_affirm_email:
+  - text: "That's great!"
+
+  utter_deny_email:
+  - text: "Unfortunately I'll have to get your email too."
+
+  utter_why_email:
+  - text: "So we can get back in contact in case our connection drops of course!"
+
+  utter_ask_buy_fruit:
+  - text: "So you're interested in getting some of the finest fruits delivered straight to your door, is that right?"
+
+  utter_ask_buy_fruit_again:
+  - text: "Are you sure? Wouldn't you like to have your favourite fresh fruit waiting for you every morning?"
+
+  utter_ask_buy_fruit_again_again:
+  - text: "Alright, I'll throw in one of our plumpest peaches just for you! How about it?"
+
+  utter_hard_bargain:
+  - text: "You drive a hard bargain!"
+
+  utter_done_asking:
+  - text: "That's okay I understand, you're probably a vegetable kind of person."
+
+  utter_ask_fruit:
+  - text: "Which fruit are you interested in ordering?"
+
+  utter_available_fruit:
+  - text: "We have everyones favourite fruits 🍎Apples, 🍊Oranges, 🍌Bananas, 🍓Strawberries, and even 🥝Kiwis! "
+
+
+  utter_contact_soon:
+  - text: "We'll be in contact with you by email in no time at all {first_name}!"
+
+  utter_no_problem:
+  - text: "No problem!"
+
+  utter_goodbye:
+  - text: "Goodbye, it was a pleasure chatting with you!"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 0
+  carry_over_slots_to_new_session: false

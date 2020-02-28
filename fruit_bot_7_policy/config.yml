@@ -1,0 +1,37 @@
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa/nlu/components/
+language: en
+pipeline:
+  - name: SpacyNLP
+    model: en_core_web_md
+    case_sensitive: false
+  - name: ConveRTTokenizer
+  - name: RegexFeaturizer
+  - name: ConveRTFeaturizer
+  - name: SpacyEntityExtractor
+    dimensions: ["PERSON"]
+  - name: CRFEntityExtractor
+  - name: components.regex.RegexEntityExtractor
+  - name: EntitySynonymMapper
+  - name: EmbeddingIntentClassifier
+
+
+
+# Configuration for Rasa Core.
+# https://rasa.com/docs/rasa/core/policies/
+policies:
+  - name: MemoizationPolicy
+  - name: FormPolicy
+  - name: MappingPolicy
+    priority: 6
+  - name: FallbackPolicy
+    nlu_threshold: 0.4
+    core_threshold: 0.3
+    fallback_action_name: action_default_fallback
+  - name: EmbeddingPolicy
+    epochs: 50
+    featurizer:
+      - name: MaxHistoryTrackerFeaturizer
+      #- name: FullDialogueTrackerFeaturizer
+        state_featurizer:
+        - name: LabelTokenizerSingleStateFeaturizer
